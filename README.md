@@ -1,4 +1,4 @@
-# IntelliVision
+# intellichoice-quiz-engine
 
 # The purpose of this web application is to provide a quiz and practice engine to supplement the math tutoring provided by IntelliChoice. The application will feature a minimalist design with a simplistic user interface.
 
