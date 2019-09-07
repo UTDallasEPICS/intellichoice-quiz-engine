@@ -13,3 +13,15 @@ export let LoginSchema = {
     "password": Joi.string().required()
   }).unknown(false)
 }
+
+export let CreateExampleSchema = {
+  body: Joi.object({
+    "name": Joi.string().required()
+  }).unknown(false)
+}
+
+export let UpdateExampleSchema = {
+  body: Joi.object({
+    "name": Joi.string()
+  }).unknown(false)
+}

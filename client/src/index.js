@@ -10,7 +10,7 @@ import AddSub from './components/add-sub';
 import Test from './components/test';
 import Results from './components/results';
 
-{/*ReactDOM.render(<App />,document.getElementById('root'));*/}
+{ReactDOM.render(<App />,document.getElementById('root'));}
 
 const routing =
 (
