@@ -8,7 +8,7 @@ api:
     - ./api/:/iv_api/
     - ./.git/:/iv_api/.git/
   working_dir: /iv_api/
-  command: npm start
+  command: npm install && npm start
   environment:
     - CACHE_HOST=cache
     - SESSION_SECRET=laskdjfnlaskjdnflkajsdnf
@@ -17,6 +17,17 @@ api:
   links:
     - database
     - cache
+client:
+  container_name: iv_client
+  build: ./images/client/
+  volumes:
+    - ./client/:/iv_client/
+  working_dir: /iv_client
+  command: npm start
+  ports:
+  - 3000:3001
+  environment:
+  - NODE_ENV=development
 nginx:
   container_name: iv_nginx
   image: nginx

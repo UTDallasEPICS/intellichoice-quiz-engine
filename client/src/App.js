@@ -23,12 +23,14 @@ class App extends React.Component
         <header className="App-header">
         {/*<img src={logo} className="App-logo" alt="logo" /> */}
           <h1>INTELLIVISION</h1>
+          <Router>
           <Button
           variant="outlined"
           component={Link} to="/components/Quiz">QUIZ</Button>
           <br></br>
           <Button component={Link} to="/components/Profile">PROFILE</Button>
           <br></br>
+          </Router>
         </header>
       </div>
     );
