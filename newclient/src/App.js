@@ -2,6 +2,8 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { Button as BootButton } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
@@ -23,7 +25,9 @@ const dashboard = (props) => (
 <div>
 	<div className="header">
 		<img src="https://www.intellichoice.org/wp-content/uploads/2019/01/intellichoice-logo-white-1024x1024.png" alt=""/>
-		<div className="word"><Link to='/profile'><h1>Profile</h1></Link></div>
+		<div className="word">
+			<BootButton type="button" class="btn btn-primary">Profile</BootButton>
+		</div>
 	</div>
 	<div>
 		<div className="left-box">
