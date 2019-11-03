@@ -5,15 +5,26 @@
 	margin-left: 5%;
 	overflow: auto;
 	margin-top: 2em;
+	position: relative;
 }
 
 img {
-	height: 76%;
+	height: 85%;
 	float: left;
 	margin: 1%;
 }
 
-.word {
+#intellichoice-logo {
+	height: 76%;
+}
+
+#correctness-pie-chart {
+	height: 60%;
+}
+
+.profile-button {
+	bottom: 0;
+	//position: absolute;
 	float: right;
 }
 
@@ -28,13 +39,12 @@ img {
 	border-radius: 1em;
 }
 
-.small-right-box {
+.quiz-box {
 	float: left;
-	//background-color: lightblue;
 	width: 58%;
 	border-style: solid;
 	box-sizing: border-box;
-	height: 15.5em;
+	height: 10em;
 	margin-top: 2em;
 	margin-left: 2%;
 	border-radius: 1em;
@@ -49,5 +59,28 @@ img {
 	height: 5em;
 	margin-top: 2em;
 	margin-left: 2%;
+	border-radius: 1em;
+}
+
+.small-header-left {
+	float: left;
+	background-color: #43a047;
+	text-align: center;
+	width: 30%;
+	box-sizing: border-box;
+	height: 5em;
+	margin-top: 2em;
+	margin-left: 5%;
+	border-radius: 1em;
+}
+
+.achievement-box {
+	float: left;
+	width: 30%;
+	border-style: solid;
+	box-sizing: border-box;
+	height: 46em;
+	margin-top: 2em;
+	margin-left: 5%;
 	border-radius: 1em;
 }
