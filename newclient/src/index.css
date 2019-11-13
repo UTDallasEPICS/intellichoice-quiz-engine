@@ -1,10 +1,10 @@
 .header {
-	width: 90%;
+	/*width: 90%;*/
 	background-color: #43a047;
 	height: 9em;
-	margin-left: 5%;
+	/*margin-left: 5%;*/
 	overflow: auto;
-	margin-top: 2em;
+	/*margin-top: 2em;*/
 	position: relative;
 }
 
@@ -15,7 +15,8 @@ img {
 }
 
 #intellichoice-logo {
-	height: 76%;
+	height: 70%;
+	object-fit: contain;
 }
 
 #correctness-pie-chart {
@@ -48,7 +49,8 @@ img {
 	margin-top: 2em;
 	margin-left: 2%;
 	border-radius: 1em;
-	border-width: 1px;
+	border-width: 2px;
+	border-color: #c1c0c0;
 }
 
 .quiz-box:hover {
@@ -59,7 +61,7 @@ img {
 	float: left;
 	background-color: #43a047;
 	text-align: center;
-	width: 58%;
+	width: 53%;
 	box-sizing: border-box;
 	height: 5em;
 	margin-top: 2em;
@@ -71,11 +73,11 @@ img {
 	float: left;
 	background-color: #43a047;
 	text-align: center;
-	width: 30%;
+	width: 25%;
 	box-sizing: border-box;
 	height: 5em;
 	margin-top: 2em;
-	margin-left: 5%;
+	margin-left: 10%;
 	border-radius: 1em;
 }
 
@@ -83,6 +85,8 @@ img {
 	float: left;
 	width: 30%;
 	border-style: solid;
+	border-width: 2px;
+	border-color: #c1c0c0;
 	box-sizing: border-box;
 	height: 46em;
 	margin-top: 2em;
