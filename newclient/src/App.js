@@ -62,7 +62,7 @@ const dashboard = (props) => (
 
 const QuizBox = (props) => {
 	return (
-		<div style={{cursor:'pointer'}} onClick={ () => { alert('You are now taking the quiz'); } } className="quiz-box">
+		<div className='quiz-box' style={{cursor:'pointer'}} onClick={ () => { alert('You are now taking the quiz'); } } className="quiz-box">
 			<img src="https://i.groupme.com/583x385.png.28c4abc1f9ad4b09a1f593c581c292e8.large" alt="books"/>
 			<h3 style={{paddingTop:'0.3em'}}>{props.title}</h3>
 			<hr className='col-xs-12' style={{width:'60%', borderWidth:'5px', borderColor:'black'}}/>
