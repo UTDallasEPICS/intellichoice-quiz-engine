@@ -29,20 +29,24 @@ const dashboard = (props) => (
 <div>
 	<div className="header">
 		<img id="intellichoice-logo" src="https://www.intellichoice.org/wp-content/uploads/2019/01/intellichoice-logo-white-1024x1024.png" alt="intellichoice logo"/>
-		<Link to='/profile'>
-		<div style={{borderStyle:'none', float:'right', height:'3em', marginRight:'0.5em', marginTop:'0.5em'}}>
-			<h4 style={{color:'white'}}>Profile</h4>
-		</div>
-		</Link>
+	</div>
+	<div>
+		<ul>
+			<li>
+				<Link to='/profile'>
+					<h4 style={{color:'white'}}>Profile</h4>
+				</Link>
+			</li>
+		</ul>
 	</div>
 
 	<div>
-		<div className="small-header-left">
-			<h1 style={{color:'white', paddingTop: '0.25em'}}>My Achievements</h1>
+		<div className="achievement-header">
+			<h2 style={{color:'white', paddingTop: '0.5em'}}>Achievements</h2>
 		</div>
 		
 		<div className="small-header">
-			<h1 style={{color: 'white', paddingTop: '0.25em'}}>My Quiz List</h1>
+			<h2 style={{color: 'white', paddingTop: '0.5em'}}>Quiz List</h2>
 		</div>
 		
 		<div className="achievement-box">

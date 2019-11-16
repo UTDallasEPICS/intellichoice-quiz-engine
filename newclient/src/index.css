@@ -1,10 +1,7 @@
 .header {
-	/*width: 90%;*/
 	background-color: #43a047;
 	height: 9em;
-	/*margin-left: 5%;*/
 	overflow: auto;
-	/*margin-top: 2em;*/
 	position: relative;
 }
 
@@ -12,6 +9,34 @@ img {
 	height: 85%;
 	float: left;
 	margin: 1%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+	overflow: auto;
+	position: relative;
+    background-color: #43a047;
+}
+
+li {
+    float: right;
+}
+
+li a {
+	text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+li a:hover {
+    background-color: #006400;
+    text-decoration: none;
 }
 
 #intellichoice-logo {
@@ -42,7 +67,7 @@ img {
 
 .quiz-box {
 	float: left;
-	width: 58%;
+	width: 48%;
 	border-style: solid;
 	box-sizing: border-box;
 	height: 10em;
@@ -61,7 +86,7 @@ img {
 	float: left;
 	background-color: #43a047;
 	text-align: center;
-	width: 53%;
+	width: 48%;
 	box-sizing: border-box;
 	height: 5em;
 	margin-top: 2em;
@@ -69,27 +94,27 @@ img {
 	border-radius: 1em;
 }
 
-.small-header-left {
+.achievement-header {
 	float: left;
 	background-color: #43a047;
 	text-align: center;
-	width: 25%;
+	width: 20%;
 	box-sizing: border-box;
 	height: 5em;
 	margin-top: 2em;
-	margin-left: 10%;
+	margin-left: 15%;
 	border-radius: 1em;
 }
 
 .achievement-box {
 	float: left;
-	width: 30%;
+	width: 20%;
 	border-style: solid;
 	border-width: 2px;
 	border-color: #c1c0c0;
 	box-sizing: border-box;
 	height: 46em;
 	margin-top: 2em;
-	margin-left: 5%;
+	margin-left: 15%;
 	border-radius: 1em;
 }
