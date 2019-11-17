@@ -1,23 +1,23 @@
-.header {
+#intellichoice-logo-div {
 	background-color: #43a047;
+	float: left;
 	height: 9em;
 	overflow: auto;
-	position: relative;
+	position: relative;	
+	width: 50%;
 }
 
-img {
-	height: 85%;
-	float: left;
-	margin: 1%;
+#intellichoice-logo {
+	height: 75%;
+	margin: 2%;
+	object-fit: contain;	
 }
 
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     width: 100%;
-	overflow: auto;
 	position: relative;
     background-color: #43a047;
 }
@@ -39,9 +39,51 @@ li a:hover {
     text-decoration: none;
 }
 
-#intellichoice-logo {
-	height: 70%;
-	object-fit: contain;
+#achievement-header {
+	float: left;
+	background-color: #43a047;
+	text-align: center;
+	width: 20%;
+	box-sizing: border-box;
+	height: 5em;
+	margin-top: 2em;
+	margin-left: 15%;
+	border-radius: 1em;
+}
+
+#achievement-header h2 {
+	color: white;
+	padding-top: 0.5em;
+}
+
+#quiz-list-header {
+	float: left;
+	background-color: #43a047;
+	text-align: center;
+	width: 48%;
+	box-sizing: border-box;
+	height: 5em;
+	margin-top: 2em;
+	margin-left: 1%;
+	border-radius: 1em;
+}
+
+#quiz-list-header h2 {
+	color: white;
+	padding-top: 0.5em;
+}
+
+#achievement-box {
+	float: left;
+	width: 20%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #c1c0c0;
+	box-sizing: border-box;
+	height: 35em;
+	margin-top: 1em;
+	margin-left: 15%;
+	border-radius: 1em;
 }
 
 #correctness-pie-chart {
@@ -49,72 +91,30 @@ li a:hover {
 	object-fit: contain;
 }
 
-.profile-button {
-	bottom: 0;
-	float: right;
-}
-
-.left-box {
-	margin-top: 2em;
-	border-style: solid;
-	box-sizing: border-box;
-	width: 30%;
-	height: 40em;
-	float: left;
-	margin-left: 5%;
-	border-radius: 1em;
-}
-
 .quiz-box {
 	float: left;
 	width: 48%;
 	border-style: solid;
 	box-sizing: border-box;
-	height: 10em;
-	margin-top: 2em;
-	margin-left: 2%;
+	height: 8em;
+	margin-top: 1em;
+	margin-left: 1%;
 	border-radius: 1em;
 	border-width: 2px;
 	border-color: #c1c0c0;
+	cursor: pointer;
+}
+
+.quiz-box-img {
+	height: 80%;
+	float: left;
+	margin: 1%;
+}
+
+.quiz-box h3 {
+	padding-top: 0.3em;
 }
 
 .quiz-box:hover {
 	background-color: lightgray;
-}
-
-.small-header {
-	float: left;
-	background-color: #43a047;
-	text-align: center;
-	width: 48%;
-	box-sizing: border-box;
-	height: 5em;
-	margin-top: 2em;
-	margin-left: 2%;
-	border-radius: 1em;
-}
-
-.achievement-header {
-	float: left;
-	background-color: #43a047;
-	text-align: center;
-	width: 20%;
-	box-sizing: border-box;
-	height: 5em;
-	margin-top: 2em;
-	margin-left: 15%;
-	border-radius: 1em;
-}
-
-.achievement-box {
-	float: left;
-	width: 20%;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #c1c0c0;
-	box-sizing: border-box;
-	height: 46em;
-	margin-top: 2em;
-	margin-left: 15%;
-	border-radius: 1em;
 }

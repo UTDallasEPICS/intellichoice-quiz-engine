@@ -27,10 +27,11 @@ function App() {
 
 const dashboard = (props) => (
 <div>
-	<div className="header">
+	<div id="intellichoice-logo-div">
 		<img id="intellichoice-logo" src="https://www.intellichoice.org/wp-content/uploads/2019/01/intellichoice-logo-white-1024x1024.png" alt="intellichoice logo"/>
 	</div>
-	<div>
+	<div style={{float:'right', height:'79.2px', width:'50%', backgroundColor:'#43a047'}}></div>
+	<div style={{width:'50%', float:'right', backgroundColor:'#43a047'}}>
 		<ul>
 			<li>
 				<Link to='/profile'>
@@ -41,18 +42,18 @@ const dashboard = (props) => (
 	</div>
 
 	<div>
-		<div className="achievement-header">
-			<h2 style={{color:'white', paddingTop: '0.5em'}}>Achievements</h2>
+		<div id="achievement-header">
+			<h2>Achievements</h2>
 		</div>
 		
-		<div className="small-header">
-			<h2 style={{color: 'white', paddingTop: '0.5em'}}>Quiz List</h2>
+		<div id="quiz-list-header">
+			<h2>Quiz List</h2>
 		</div>
 		
-		<div className="achievement-box">
-			<h1>My Rank: 1st</h1>
-			<h1>My Score: 100%</h1>
-			<h1>Correctness:</h1>
+		<div id="achievement-box">
+			<h3>My Rank: 1st</h3>
+			<h3>My Score: 100%</h3>
+			<h3>Correctness:</h3>
 			<img id="correctness-pie-chart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/English_dialects1997.svg/1200px-English_dialects1997.svg.png" alt='pie chart of countries'/>
 		</div>
 
@@ -66,9 +67,9 @@ const dashboard = (props) => (
 
 const QuizBox = (props) => {
 	return (
-		<div className='quiz-box' style={{cursor:'pointer'}} onClick={ () => { alert('You are now taking the quiz'); } } className="quiz-box">
-			<img src="https://i.groupme.com/583x385.png.28c4abc1f9ad4b09a1f593c581c292e8.large" alt="books"/>
-			<h3 style={{paddingTop:'0.3em'}}>{props.title}</h3>
+		<div className='quiz-box' onClick={ () => { alert('You are now taking the quiz'); } }>
+			<img className='quiz-box-img' src="https://i.groupme.com/583x385.png.28c4abc1f9ad4b09a1f593c581c292e8.large" alt="books"/>
+			<h3>{props.title}</h3>
 			<hr className='col-xs-12' style={{width:'60%', borderWidth:'5px', borderColor:'black'}}/>
 			<p style={{float:'left'}}>{props.questionNumber} questions</p>
 			<p style={{float:'right', marginRight:'2%'}}>Status: {props.status}%</p>
