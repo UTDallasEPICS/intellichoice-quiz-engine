@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import quizQuestions from './api/quizQuestions';
-import Quiz from './components/Quiz';
-import Result from './components/Result';
-import logo from './img/logo.png';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-
-
+import React, { Component } from "react";
+import quizQuestions from "./api/quizQuestions";
+import Quiz from "./components/Quiz";
+import Result from "./components/Result";
+import logo from "./img/logo.png";
+import Background from "./img/background.png";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 
 class App extends Component {
   constructor(props) {
@@ -16,11 +15,11 @@ class App extends Component {
     this.state = {
       counter: 0,
       questionId: 1,
-      question: '',
+      question: "",
       answerOptions: [],
-      answer: '',
+      answer: "",
       answersCount: {},
-      result: ''
+      result: ""
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -77,38 +76,36 @@ class App extends Component {
   }
 
   setNextQuestion() {
-    if(!(this.state.counter < this.state.questionTotal)){
+    if (!(this.state.counter < this.state.questionTotal)) {
       const counter = this.state.counter + 1;
       const questionId = this.state.questionId + 1;
-    
-     this.setState({
-      counter: counter,
-      questionId: questionId,
-      question: quizQuestions[counter].question,
-      answerOptions: quizQuestions[counter].answers,
-      answer: ''
-    });
-    }
-    else{
+
+      this.setState({
+        counter: counter,
+        questionId: questionId,
+        question: quizQuestions[counter].question,
+        answerOptions: quizQuestions[counter].answers,
+        answer: ""
+      });
+    } else {
       console.log("The end");
     }
-
-   
   }
-  
-  /*need to flesh out this function and test it*/ 
-  goBack(){
-    if(this.state.counter > 0){
-      const counter = this.state.counter-1;
+
+  /*need to flesh out this function and test it*/
+
+  goBack() {
+    if (this.state.counter > 0) {
+      const counter = this.state.counter - 1;
       const questionId = this.state.questionId - 1;
-      
+
       this.setState({
-      counter: counter,
-      questionId: questionId,
-      question: quizQuestions[counter].question,
-      answerOptions: quizQuestions[counter].answers,
-      answer: ''
-    });
+        counter: counter,
+        questionId: questionId,
+        question: quizQuestions[counter].question,
+        answerOptions: quizQuestions[counter].answers,
+        answer: ""
+      });
     }
   }
 
@@ -125,7 +122,7 @@ class App extends Component {
     if (result.length === 1) {
       this.setState({ result: result[0] });
     } else {
-      this.setState({ result: 'Undetermined' });
+      this.setState({ result: "Undetermined" });
     }
   }
 
@@ -148,27 +145,38 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header>
-          <div className="header-logo">
-          <img src={logo}  alt="logo" height="75%" width="35%" />
+      <div className="background">
+        <div className="App">
+          <header>
+            <div className="header-logo">
+              <img src={logo} alt="logo" height="75%" width="35%" />
+            </div>
+          </header>
+
+          <div className="quiz-box">
+            {this.state.result ? this.renderResult() : this.renderQuiz()}
           </div>
-        </header>
-        <div className="quiz-box">
-           {this.state.result ? this.renderResult() : this.renderQuiz()}
+          <div id="navigation">
+            <span id="back">
+              <Button
+                className="float-left"
+                variant="secondary"
+                onClick={() => this.goBack(this)}
+              >
+                Back
+              </Button>
+            </span>
+            <span id="next">
+              <Button
+                className="float-right"
+                variant="secondary"
+                onClick={() => this.setNextQuestion(this)}
+              >
+                Next
+              </Button>
+            </span>
+          </div>
         </div>
-        <div id="navigation">
-          <span id="back">
-          <Button className="float-left" variant="secondary" onClick={()=>this.goBack(this)}>Back</Button>
-          </span>
-          <span id="next">
-            <Button className="float-right" variant="secondary" onClick={()=>this.setNextQuestion(this)}>Next</Button>
-          </span> 
-        </div>
-        
-        
-       
-       
       </div>
     );
   }

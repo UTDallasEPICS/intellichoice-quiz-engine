@@ -1,24 +1,24 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.back{
+.back {
   text-align: left;
 }
-.next{
+.next {
   text-align: right;
 }
-.nav{
+.nav {
   width: 75%;
 }
 
@@ -26,17 +26,23 @@ code {
   box-sizing: border-box;
 }
 
-/*manage header*/
-header{
-  background-color: green;
-  padding: 10px;
-  margin-block-end: .5in;
+.background {
+  background-image: url("./img/background.png");
+  background-size: cover;
+  overflow: hidden;
 }
 
-.header-logo{
-text-align: left;
-height: 75%;
-width: 75%;
+/*manage header*/
+header {
+  background-color: green;
+  padding: 10px;
+  margin-block-end: 0.5in;
+}
+
+.header-logo {
+  text-align: left;
+  height: 75%;
+  width: 75%;
 }
 
 body {
@@ -58,7 +64,7 @@ body {
   .container {
     margin: 2.5rem auto;
   }
-  .logo{
+  .logo {
     width: 75%;
   }
 }
@@ -124,7 +130,7 @@ body {
   left: 38px;
   width: 28px;
   height: 28px;
-  content: '';
+  content: "";
   display: inline-block;
   vertical-align: middle;
   background: #fff;
@@ -134,7 +140,7 @@ body {
 }
 /*changed selector to active from checked*/
 .radioCustomButton:active ~ .radioCustomLabel:before {
-  content: '';
+  content: "";
   background: #8bc53f url(./svg/icon-check.svg) no-repeat;
   background-size: 27px;
   border-color: #8bc53f;
@@ -171,4 +177,3 @@ body {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
-
