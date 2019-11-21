@@ -76,7 +76,7 @@ class App extends Component {
   }
 
   setNextQuestion() {
-    if (!(this.state.counter < this.state.questionTotal)) {
+    if (this.state.counter < quizQuestions.length-1) {
       const counter = this.state.counter + 1;
       const questionId = this.state.questionId + 1;
 
@@ -155,12 +155,13 @@ class App extends Component {
 
           <div className="quiz-box">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
-          </div>
-          <div id="navigation">
+
+            <div id="navigation">
             <span id="back">
               <Button
                 className="float-left"
                 variant="secondary"
+                size="lg"
                 onClick={() => this.goBack(this)}
               >
                 Back
@@ -170,12 +171,15 @@ class App extends Component {
               <Button
                 className="float-right"
                 variant="secondary"
+                size="lg"
                 onClick={() => this.setNextQuestion(this)}
               >
                 Next
               </Button>
             </span>
           </div>
+          </div>
+          
         </div>
       </div>
     );
