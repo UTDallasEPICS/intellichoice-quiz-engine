@@ -4,6 +4,9 @@ import './App.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
+import Icon from '@mdi/react'
+import { mdiBookOpenPageVariant } from '@mdi/js'
+import Chart from 'chart.js'
 
 function App() {
   return (
@@ -68,7 +71,7 @@ const dashboard = (props) => (
 const QuizBox = (props) => {
 	return (
 		<div className='quiz-box' onClick={ () => { alert('You are now taking the quiz'); } }>
-			<img className='quiz-box-img' src="https://i.groupme.com/583x385.png.28c4abc1f9ad4b09a1f593c581c292e8.large" alt="books"/>
+			<Book/>
 			<h3>{props.title}</h3>
 			<hr className='col-xs-12' style={{width:'60%', borderWidth:'5px', borderColor:'black'}}/>
 			<p style={{float:'left'}}>{props.questionNumber} questions</p>
@@ -85,5 +88,16 @@ const profile = () => {
 		</div>
 	)
 };
+
+const Book = () => {
+	return (
+		<Icon path={mdiBookOpenPageVariant}
+			title="user profile"
+			size={4}
+			color='black'
+			style={{float:'left', marginRight:'1em', marginLeft:'1em', marginTop:'0.5em'}}
+		/>
+	)
+}
 
 export default App;
