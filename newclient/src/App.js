@@ -6,7 +6,8 @@ import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import Icon from '@mdi/react'
 import { mdiBookOpenPageVariant } from '@mdi/js'
-import Chart from 'chart.js'
+import { PieChart } from 'react-chartkick'
+import 'chart.js'
 
 function App() {
   return (
@@ -41,6 +42,11 @@ const dashboard = (props) => (
 					<h4 style={{color:'white'}}>Profile</h4>
 				</Link>
 			</li>
+			<li>
+				<Link>
+					<h4 style={{color:'white'}}>Logout</h4>
+				</Link>
+			</li>
 		</ul>
 	</div>
 
@@ -54,10 +60,10 @@ const dashboard = (props) => (
 		</div>
 		
 		<div id="achievement-box">
-			<h3>My Rank: 1st</h3>
+			<h3 style={{marginTop:'0.5em'}}>My Rank: 1st</h3>
 			<h3>My Score: 100%</h3>
 			<h3>Correctness:</h3>
-			<img id="correctness-pie-chart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/English_dialects1997.svg/1200px-English_dialects1997.svg.png" alt='pie chart of countries'/>
+			<PieChart data={[['A', 10], ['B', 20], ['C', 30], ['D', 40]]} colors={['red', 'blue', 'green', 'orange']} legend={false} />
 		</div>
 
 		<QuizBox title='Fractions' questionNumber='15' status='100'/>
