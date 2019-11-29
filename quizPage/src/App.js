@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   setNextQuestion() {
-    if (this.state.counter < quizQuestions.length-1) {
+    if (this.state.counter < quizQuestions.length - 1) {
       const counter = this.state.counter + 1;
       const questionId = this.state.questionId + 1;
 
@@ -199,8 +199,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="background">
-        <div className="App">
+      <div className="App">
+        <div className="background">
           <header>
             <div className="header-logo">
               <img src={logo} alt="logo" height="75%" width="35%" />
@@ -249,7 +249,6 @@ class App extends Component {
               </span>
           </div>
           </div>
-          
         </div>
       </div>
     );
