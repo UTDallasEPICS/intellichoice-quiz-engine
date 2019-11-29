@@ -4,7 +4,8 @@ var quizQuestions = [
         answers: [
             {
                 type: "Microsoft",
-                content: "Halo"
+                content: "Halo",
+                correct: false
             },
             {
                 type: "Nintendo",
@@ -13,6 +14,10 @@ var quizQuestions = [
             {
                 type: "Sony",
                 content: "Uncharted"
+            },
+            {
+                type: "Math",
+                content: "Algebra"
             }
         ]
     },
@@ -81,6 +86,27 @@ var quizQuestions = [
             {
                 type: "Sony",
                 content: "Playstation 4"
+            }
+        ]
+    },
+    {
+        question: "What is 2 + 2?",
+        answers: [
+            {
+                type: "true",
+                content: "4"
+            },
+            {
+                type: "false",
+                content: "7"
+            },
+            {
+                type: "false",
+                content: "9"
+            },
+            {
+                type: "false",
+                content: "1"
             }
         ]
     }

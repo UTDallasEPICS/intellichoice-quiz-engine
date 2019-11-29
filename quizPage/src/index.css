@@ -19,8 +19,8 @@ code {
 .next {
   text-align: right;
 }
-.nav {
-  width: 75%;
+.navigation {
+  padding-bottom: 20px;
 }
 
 * {
@@ -35,12 +35,14 @@ code {
 }
 
 .quiz-box{
-  width: 80%;
+  width: 70%;
   text-align: center;
   display: inline-block;
   background: #fff;
   border-radius: 25px;
-  border-bottom:0;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  
 }
 
 /*manage header*/
@@ -52,8 +54,14 @@ header {
 
 .header-logo {
   text-align: left;
-  height: 75%;
-  width: 75%;
+  
+}
+
+.quitButton{
+  text-align: center;
+  position: absolute;
+  top: 5%;
+  right: 15%;
 }
 
 body {
