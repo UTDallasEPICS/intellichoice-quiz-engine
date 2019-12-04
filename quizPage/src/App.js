@@ -3,7 +3,6 @@ import quizQuestions from "./api/quizQuestions";
 import Quiz from "./components/Quiz";
 import Result from "./components/Result";
 import logo from "./img/logo.png";
-import Background from "./img/background.png";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
@@ -57,7 +56,6 @@ class App extends Component {
 
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
-
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
@@ -115,6 +113,8 @@ class App extends Component {
     const answersCountValues = answersCountKeys.map(key => answersCount[key]);
     const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
+    //need to change to results meaningful to a math quiz
+
     return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
   }
 
@@ -143,6 +143,52 @@ class App extends Component {
     return <Result quizResult={this.state.result} />;
   }
 
+  disableBack() {
+    //if counter is at zero disable the back button
+    if (this.state.counter === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  disableNext() {
+    //if counter is at the border diable the next button
+    if (this.state.counter === quizQuestions.length - 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //quit the quiz and go back to dashboard and save results
+  quit() {
+    if (window.confirm("You are moving aways from the Quiz!")) {
+      //save progress and move to the dashboard
+      window.location.reload(false);
+    }
+  }
+
+  getAnswer() {
+    /*const ans = [];
+    for(const [counter,quizQuestions[this.counter].answers] of quizQuestions[this.counter].answers === "true"){
+      ans.push(quizQuestions[this.counter].answer);
+    }*/
+  }
+
+  getAnswerEvent() {
+    try {
+      var ans = quizQuestions[this.counter].answer;
+      if (ans === undefined) {
+        console.log("this is undefined");
+      } else {
+        return ans;
+      }
+    } catch (error) {
+      alert("This is the Answer");
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -151,17 +197,31 @@ class App extends Component {
             <div className="header-logo">
               <img src={logo} alt="logo" height="75%" width="35%" />
             </div>
+            <div className="quitButton">
+              <Button
+                id="quitButton"
+                className="float-right"
+                variant="danger"
+                size="lg"
+                onClick={this.quit}
+              >
+                Quit
+              </Button>
+            </div>
           </header>
 
           <div className="quiz-box">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
-
+            <Button variant="warning" size="lg" onClick={this.getAnswerEvent}>
+              check answer
+            </Button>
             <div id="navigation">
               <span id="back">
                 <Button
                   className="float-left"
                   variant="secondary"
                   size="lg"
+                  disabled={this.disableBack()}
                   onClick={() => this.goBack(this)}
                 >
                   Back
@@ -172,6 +232,7 @@ class App extends Component {
                   className="float-right"
                   variant="secondary"
                   size="lg"
+                  disabled={this.disableNext()}
                   onClick={() => this.setNextQuestion(this)}
                 >
                   Next
@@ -184,8 +245,5 @@ class App extends Component {
     );
   }
 }
-/*<div className="App-header">
-<img src={logo} className="App-logo" alt="logo" />
-<h2>React Quiz</h2>
-</div>*/
+
 export default App;
