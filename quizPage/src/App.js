@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       counter: 0,
       questionId: 1,
@@ -85,15 +85,11 @@ class App extends Component {
         answerOptions: quizQuestions[counter].answers,
         answer: ""
       });
-
-  
     } else {
       console.log("The end");
     }
   }
 
-
-  
   /*need to flesh out this function and test it*/
 
   goBack() {
@@ -147,54 +143,50 @@ class App extends Component {
     return <Result quizResult={this.state.result} />;
   }
 
-  disableBack(){
+  disableBack() {
     //if counter is at zero disable the back button
-    if(this.state.counter === 0){
+    if (this.state.counter === 0) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
 
-  disableNext(){
+  disableNext() {
     //if counter is at the border diable the next button
-    if(this.state.counter === quizQuestions.length-1){
+    if (this.state.counter === quizQuestions.length - 1) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
 
-//quit the quiz and go back to dashboard and save results
-  quit(){
-    var quitPrompt=prompt("you're moving away from the quiz");
-    alert(quitPrompt);
+  //quit the quiz and go back to dashboard and save results
+  quit() {
+    if (window.confirm("You are moving aways from the Quiz!")) {
+      //save progress and move to the dashboard
+      window.location.reload(false);
+    }
   }
 
-  getAnswer(){
+  getAnswer() {
     /*const ans = [];
     for(const [counter,quizQuestions[this.counter].answers] of quizQuestions[this.counter].answers === "true"){
       ans.push(quizQuestions[this.counter].answer);
     }*/
   }
 
-  getAnswerEvent(){
+  getAnswerEvent() {
     try {
-      
-      var ans=quizQuestions[this.counter].answer;
-      if(ans === undefined){
+      var ans = quizQuestions[this.counter].answer;
+      if (ans === undefined) {
         console.log("this is undefined");
-      }else{
+      } else {
         return ans;
       }
     } catch (error) {
-      var def=prompt("undefined");
-      alert(def);
+      alert("This is the Answer");
     }
-    
-    
   }
 
   render() {
@@ -206,11 +198,13 @@ class App extends Component {
               <img src={logo} alt="logo" height="75%" width="35%" />
             </div>
             <div className="quitButton">
-            <Button id ="quitButton" 
-              className="float-right"
-              variant="danger"
-              size="lg"
-              onClick={this.quit}>
+              <Button
+                id="quitButton"
+                className="float-right"
+                variant="danger"
+                size="lg"
+                onClick={this.quit}
+              >
                 Quit
               </Button>
             </div>
@@ -218,10 +212,7 @@ class App extends Component {
 
           <div className="quiz-box">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
-            <Button
-            variant="warning"
-            size="lg"
-            onClick={this.getAnswerEvent}>
+            <Button variant="warning" size="lg" onClick={this.getAnswerEvent}>
               check answer
             </Button>
             <div id="navigation">
@@ -247,7 +238,7 @@ class App extends Component {
                   Next
                 </Button>
               </span>
-          </div>
+            </div>
           </div>
         </div>
       </div>
