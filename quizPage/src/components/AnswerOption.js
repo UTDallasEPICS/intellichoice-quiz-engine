@@ -10,8 +10,8 @@ function AnswerOption(props) {
         name="radioGroup"
         checked={props.answerType === props.answer}
         id={props.answerType}
-        value={props.answerType}
-        disabled={props.answer}
+        value={props.answerCorrect}
+       // disabled={props.answer}
         onChange={props.onAnswerSelected}
       />
       <label className="radioCustomLabel" htmlFor={props.answerType}>
@@ -23,6 +23,7 @@ function AnswerOption(props) {
 
 AnswerOption.propTypes = {
   answerType: PropTypes.string.isRequired,
+  answerCorrect: PropTypes.bool.isRequired,
   answerContent: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
   onAnswerSelected: PropTypes.func.isRequired
