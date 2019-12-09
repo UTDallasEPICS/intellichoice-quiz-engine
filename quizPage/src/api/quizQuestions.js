@@ -1,5 +1,5 @@
 var quizQuestions = [
-  {
+ /* {
     question: "What franchise would you rather play a game from?",
     answers: [
       {
@@ -20,7 +20,7 @@ var quizQuestions = [
         content: "Algebra"
       }
     ]
-  } /*,
+  },
   {
     question: "Which console would you prefer to play with friends?",
     answers: [
@@ -89,28 +89,57 @@ var quizQuestions = [
         content: "Playstation 4"
       }
     ]
-  },
+  },*/
   {
     question: "What is 2 + 2?",
     answers: [
       {
+        type: "Addition",
         correct: true,
         content: "4"
       },
       {
+        type: "Addition",
         correct: false,
         content: "7"
       },
       {
+        type: "Addition",
         correct: false,
         content: "9"
       },
       {
+        type: "Addition",
         correct: false,
         content: "1"
       }
     ]
-  }*/
+  },
+  {
+    question: "What is 2 - 1?",
+    answers: [
+      {
+        type: "Substraction",
+        correct: true,
+        content: "1"
+      },
+      {
+        type: "Substraction",
+        correct: false,
+        content: "7"
+      },
+      {
+        type: "Substraction",
+        correct: false,
+        content: "9"
+      },
+      {
+        type: "Substraction",
+        correct: false,
+        content: "5"
+      }
+    ]
+  }
 ];
 
 export default quizQuestions;

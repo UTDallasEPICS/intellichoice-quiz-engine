@@ -18,7 +18,8 @@ class App extends Component {
       answerOptions: [],
       answer: "",
       answersCount: {},
-      result: ""
+      result: "",
+      chosenAnswer: []
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -32,6 +33,7 @@ class App extends Component {
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
     });
+   // this.radioRef = React.createRef();
   }
 
   shuffleArray(array) {
@@ -57,6 +59,7 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
+      
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
       setTimeout(() => this.setResults(this.getResults()), 300);
@@ -111,31 +114,72 @@ class App extends Component {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
     const answersCountValues = answersCountKeys.map(key => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
-
+    //const maxAnswerCount = Math.max.apply(null, answersCountValues);
+    var correctAns=0;
+    var i;
+    for(i=0;i < quizQuestions.length;i++){
+      if(answersCountValues[i] === true){
+        ++correctAns;
+      }
+    }
     //need to change to results meaningful to a math quiz
-
-    return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
+    const totalRight=correctAns/quizQuestions.length;
+    alert(totalRight);
+    //return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
+    return (totalRight);
   }
 
   setResults(result) {
-    if (result.length === 1) {
+    /*if (result.length === 1) {
       this.setState({ result: result[0] });
     } else {
       this.setState({ result: "Undetermined" });
-    }
+    }*/
+    this.setState({result: this.getResults});
   }
 
   renderQuiz() {
     return (
+      <div>
       <Quiz
         answer={this.state.answer}
+        counter={this.state.counter}
         answerOptions={this.state.answerOptions}
         questionId={this.state.questionId}
         question={this.state.question}
         questionTotal={quizQuestions.length}
         onAnswerSelected={this.handleAnswerSelected}
       />
+
+            <div id="navigation">
+               <Button variant="warning" size="lg" onClick={this.getAnswerEvent}>
+              check answer
+            </Button>
+          
+              <span id="back">
+                <Button
+                  className="float-left"
+                  variant="secondary"
+                  size="lg"
+                  disabled={this.disableBack()}
+                  onClick={() => this.goBack(this)}
+                >
+                  Back
+                </Button>
+              </span>
+              <span id="next">
+                <Button
+                  className="float-right"
+                  variant="secondary"
+                  size="lg"
+                  disabled={this.disableNext()}
+                  onClick={() => this.setNextQuestion(this)}
+                >
+                  Next
+                </Button>
+              </span>
+              </div>
+              </div>
     );
   }
 
@@ -153,7 +197,7 @@ class App extends Component {
   }
 
   disableNext() {
-    //if counter is at the border diable the next button
+    //if counter is at the border disable the next button
     if (this.state.counter === quizQuestions.length - 1) {
       return true;
     } else {
@@ -212,33 +256,7 @@ class App extends Component {
 
           <div className="quiz-box">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
-            <Button variant="warning" size="lg" onClick={this.getAnswerEvent}>
-              check answer
-            </Button>
-            <div id="navigation">
-              <span id="back">
-                <Button
-                  className="float-left"
-                  variant="secondary"
-                  size="lg"
-                  disabled={this.disableBack()}
-                  onClick={() => this.goBack(this)}
-                >
-                  Back
-                </Button>
-              </span>
-              <span id="next">
-                <Button
-                  className="float-right"
-                  variant="secondary"
-                  size="lg"
-                  disabled={this.disableNext()}
-                  onClick={() => this.setNextQuestion(this)}
-                >
-                  Next
-                </Button>
-              </span>
-            </div>
+            
           </div>
         </div>
       </div>
