@@ -43,7 +43,7 @@ const dashboard = (props) => (
                 <h3 style={{marginTop:'0.5em'}}>My Rank: 1st</h3>
                 <h3>My Score: 100%</h3>
                 <h3>Correctness:</h3>
-                <PieChart data={[['A', 10], ['B', 20], ['C', 30], ['D', 40]]} colors={['red', 'blue', 'green', 'orange']} legend={false} />
+                <PieChart data={[['Correct', 85], ['Incorrect', 15]]} colors={['green', 'red']}/>
             </div>
     
             <QuizBox title='Fractions' questionNumber='15' status='100'/>
