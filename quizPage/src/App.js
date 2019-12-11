@@ -33,7 +33,7 @@ class App extends Component {
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
     });
-   // this.radioRef = React.createRef();
+    // this.radioRef = React.createRef();
   }
 
   shuffleArray(array) {
@@ -59,7 +59,6 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
-      
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
       setTimeout(() => this.setResults(this.getResults()), 300);
@@ -74,6 +73,7 @@ class App extends Component {
       },
       answer: answer
     }));
+    //alert(answer);
   }
 
   setNextQuestion() {
@@ -114,19 +114,30 @@ class App extends Component {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
     const answersCountValues = answersCountKeys.map(key => answersCount[key]);
+    let correctStill = false;
     //const maxAnswerCount = Math.max.apply(null, answersCountValues);
-    var correctAns=0;
+    const correctVal = answersCountKeys.filter(key => answersCount[key]);
+    let correctAns = 0;
+    alert(correctVal);
     var i;
-    for(i=0;i < quizQuestions.length;i++){
-      if(answersCountValues[i] === true){
+    alert(answersCount + " " + answersCountKeys + " " + answersCountValues);
+    for (i = 0; i < quizQuestions.length; i++) {
+      alert(answersCountKeys[i]);
+      if (answersCountKeys[i] === "true") {
         ++correctAns;
+        correctStill = true;
+      } else if (correctStill && answersCountKeys[i] === undefined) {
+        return 1;
+      } else {
+        correctStill = false;
       }
     }
     //need to change to results meaningful to a math quiz
-    const totalRight=correctAns/quizQuestions.length;
-    alert(totalRight);
+
+    return correctAns / quizQuestions.length;
+
+    //alert(correctAns + " " + totalRight + " " + quizQuestions.length);
     //return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
-    return (totalRight);
   }
 
   setResults(result) {
@@ -135,51 +146,47 @@ class App extends Component {
     } else {
       this.setState({ result: "Undetermined" });
     }*/
-    this.setState({result: this.getResults});
+    this.setState({ result: `${this.getResults() * 100}%` });
   }
 
   renderQuiz() {
     return (
       <div>
-      <Quiz
-        answer={this.state.answer}
-        counter={this.state.counter}
-        answerOptions={this.state.answerOptions}
-        questionId={this.state.questionId}
-        question={this.state.question}
-        questionTotal={quizQuestions.length}
-        onAnswerSelected={this.handleAnswerSelected}
-      />
+        <Quiz
+          answer={this.state.answer}
+          counter={this.state.counter}
+          answerOptions={this.state.answerOptions}
+          questionId={this.state.questionId}
+          question={this.state.question}
+          questionTotal={quizQuestions.length}
+          onAnswerSelected={this.handleAnswerSelected}
+        />
 
-            <div id="navigation">
-               <Button variant="warning" size="lg" onClick={this.getAnswerEvent}>
-              check answer
+        <div id="navigation">
+          <span id="back">
+            <Button
+              className="float-left"
+              variant="secondary"
+              size="lg"
+              disabled={this.disableBack()}
+              onClick={() => this.goBack(this)}
+            >
+              Back
             </Button>
-          
-              <span id="back">
-                <Button
-                  className="float-left"
-                  variant="secondary"
-                  size="lg"
-                  disabled={this.disableBack()}
-                  onClick={() => this.goBack(this)}
-                >
-                  Back
-                </Button>
-              </span>
-              <span id="next">
-                <Button
-                  className="float-right"
-                  variant="secondary"
-                  size="lg"
-                  disabled={this.disableNext()}
-                  onClick={() => this.setNextQuestion(this)}
-                >
-                  Next
-                </Button>
-              </span>
-              </div>
-              </div>
+          </span>
+          <span id="next">
+            <Button
+              className="float-right"
+              variant="secondary"
+              size="lg"
+              disabled={this.disableNext()}
+              onClick={() => this.setNextQuestion(this)}
+            >
+              Next
+            </Button>
+          </span>
+        </div>
+      </div>
     );
   }
 
@@ -218,6 +225,7 @@ class App extends Component {
     for(const [counter,quizQuestions[this.counter].answers] of quizQuestions[this.counter].answers === "true"){
       ans.push(quizQuestions[this.counter].answer);
     }*/
+    alert(this.chosenAnswer);
   }
 
   getAnswerEvent() {
@@ -225,6 +233,7 @@ class App extends Component {
       var ans = quizQuestions[this.counter].answer;
       if (ans === undefined) {
         console.log("this is undefined");
+        alert(ans);
       } else {
         return ans;
       }
@@ -256,7 +265,6 @@ class App extends Component {
 
           <div className="quiz-box">
             {this.state.result ? this.renderResult() : this.renderQuiz()}
-            
           </div>
         </div>
       </div>

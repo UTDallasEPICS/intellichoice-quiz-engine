@@ -30,7 +30,7 @@ code {
 .background {
   background-image: url("./img/background.png");
   background-size: 100%;
-  min-height: 720px;
+  min-height: 100vh;
 
   object-fit: cover;
   height: auto;
@@ -78,6 +78,22 @@ body {
   margin: 0 auto;
   background: #fff;
   border-radius: 3px;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    margin: 1.5rem auto;
+  }
+  .logo {
+    width: 75%;
+  }
+  .background {
+    background-image: url("./img/background.png");
+    background-size: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+    height: auto;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 769px) {

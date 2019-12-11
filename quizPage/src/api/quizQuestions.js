@@ -1,5 +1,5 @@
 var quizQuestions = [
- /* {
+  /* {
     question: "What franchise would you rather play a game from?",
     answers: [
       {
@@ -94,24 +94,24 @@ var quizQuestions = [
     question: "What is 2 + 2?",
     answers: [
       {
-        type: "Addition",
+        type: "a",
         correct: true,
         content: "4"
       },
       {
-        type: "Addition",
+        type: "b",
         correct: false,
         content: "7"
       },
       {
-        type: "Addition",
+        type: "c",
         correct: false,
         content: "9"
       },
       {
-        type: "Addition",
+        type: "d",
         correct: false,
-        content: "1"
+        content: "2"
       }
     ]
   },
@@ -119,22 +119,22 @@ var quizQuestions = [
     question: "What is 2 - 1?",
     answers: [
       {
-        type: "Substraction",
+        type: "a",
         correct: true,
         content: "1"
       },
       {
-        type: "Substraction",
+        type: "b",
         correct: false,
-        content: "7"
+        content: "3"
       },
       {
-        type: "Substraction",
+        type: "c",
         correct: false,
-        content: "9"
+        content: "8"
       },
       {
-        type: "Substraction",
+        type: "d",
         correct: false,
         content: "5"
       }
