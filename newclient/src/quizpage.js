@@ -214,10 +214,7 @@ class QuizPage extends Component {
 
   //quit the quiz and go back to dashboard and save results
   quit() {
-    if (window.confirm("You are moving aways from the Quiz!")) {
-      //save progress and move to the dashboard
-      window.location.href = '/dashboard';
-    }
+    window.location.href = '/dashboard';
   }
 
   getAnswer() {
