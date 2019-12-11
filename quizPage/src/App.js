@@ -59,7 +59,6 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
-      //alert(event.currentTarget.value);
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
       setTimeout(() => this.setResults(this.getResults()), 300);
@@ -74,12 +73,11 @@ class App extends Component {
       },
       answer: answer
     }));
-    alert(answer);
+    //alert(answer);
   }
 
   setNextQuestion() {
     if (this.state.counter < quizQuestions.length - 1) {
-      chosenAnswer[this.state.counter] = answerOptions.value;
       const counter = this.state.counter + 1;
       const questionId = this.state.questionId + 1;
 
@@ -116,20 +114,30 @@ class App extends Component {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
     const answersCountValues = answersCountKeys.map(key => answersCount[key]);
+    let correctStill = false;
     //const maxAnswerCount = Math.max.apply(null, answersCountValues);
+    const correctVal = answersCountKeys.filter(key => answersCount[key]);
     let correctAns = 0;
+    alert(correctVal);
     var i;
-    //alert(answersCount + " " + answersCountKeys + " " + answersCountValues);
+    alert(answersCount + " " + answersCountKeys + " " + answersCountValues);
     for (i = 0; i < quizQuestions.length; i++) {
+      alert(answersCountKeys[i]);
       if (answersCountKeys[i] === "true") {
         ++correctAns;
+        correctStill = true;
+      } else if (correctStill && answersCountKeys[i] === undefined) {
+        return 1;
+      } else {
+        correctStill = false;
       }
     }
     //need to change to results meaningful to a math quiz
-    const totalRight = correctAns / quizQuestions.length;
-    alert(correctAns + " " + totalRight + " " + quizQuestions.length);
+
+    return correctAns / quizQuestions.length;
+
+    //alert(correctAns + " " + totalRight + " " + quizQuestions.length);
     //return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
-    return totalRight;
   }
 
   setResults(result) {
@@ -217,6 +225,7 @@ class App extends Component {
     for(const [counter,quizQuestions[this.counter].answers] of quizQuestions[this.counter].answers === "true"){
       ans.push(quizQuestions[this.counter].answer);
     }*/
+    alert(this.chosenAnswer);
   }
 
   getAnswerEvent() {

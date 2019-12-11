@@ -111,7 +111,7 @@ var quizQuestions = [
       {
         type: "d",
         correct: false,
-        content: "1"
+        content: "2"
       }
     ]
   },
@@ -126,12 +126,12 @@ var quizQuestions = [
       {
         type: "b",
         correct: false,
-        content: "7"
+        content: "3"
       },
       {
         type: "c",
         correct: false,
-        content: "9"
+        content: "8"
       },
       {
         type: "d",
