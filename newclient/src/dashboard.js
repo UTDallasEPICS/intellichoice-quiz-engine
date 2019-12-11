@@ -12,17 +12,17 @@ import 'chart.js'
 const dashboard = (props) => (
     <div>
         <div id="intellichoice-logo-div">
-            <img id="intellichoice-logo" src="https://www.intellichoice.org/wp-content/uploads/2019/01/intellichoice-logo-white-1024x1024.png" alt="intellichoice logo"/>
+            <img id="intellichoice-logo" src="intellichoice-logo-white-1024x1024.png" alt="intellichoice logo"/>
         </div>
         <div style={{float:'right', height:'79.2px', width:'50%', backgroundColor:'#43a047'}}></div>
         <div style={{width:'50%', float:'right', backgroundColor:'#43a047'}}>
-            <ul>
-                <li>
+            <ul id="header-button-list">
+                <li className="header-button">
                     <Link to='/profile'>
                         <h4 style={{color:'white'}}>Profile</h4>
                     </Link>
                 </li>
-                <li>
+                <li className="header-button" onClick={ () => { alert("You have been logged out.") }}>
                     <Link>
                         <h4 style={{color:'white'}}>Logout</h4>
                     </Link>
@@ -70,9 +70,9 @@ const Book = () => {
 	return (
 		<Icon path={mdiBookOpenPageVariant}
 			title="user profile"
-			size={4}
+			size={3}
 			color='black'
-			style={{float:'left', marginRight:'1em', marginLeft:'1em', marginTop:'0.5em'}}
+			style={{float:'left', marginRight:'1em', marginLeft:'1em', marginTop:'1em'}}
 		/>
 	)
 }

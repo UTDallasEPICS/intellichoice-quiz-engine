@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import dashboard from './dashboard'
+import profile from './profile'
 
 function App() {
   return (
@@ -25,13 +26,6 @@ function App() {
   );
 }
 
-const profile = () => {
-	return (
-		<div>
-			<h1>profile page work in progress</h1>
-			<p>Click <Link to="/dashboard">here</Link> to go back to the dashboard</p>
-		</div>
-	)
-};
+
 
 export default App;

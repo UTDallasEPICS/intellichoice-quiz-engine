@@ -13,7 +13,7 @@
 	object-fit: contain;	
 }
 
-ul {
+#header-button-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -22,11 +22,11 @@ ul {
     background-color: #43a047;
 }
 
-li {
+.header-button {
     float: right;
 }
 
-li a {
+.header-button a {
 	text-decoration: none;
     display: block;
     color: white;
@@ -34,7 +34,7 @@ li a {
     padding: 14px 16px;
 }
 
-li a:hover {
+.header-button a:hover {
     background-color: #006400;
     text-decoration: none;
 }
