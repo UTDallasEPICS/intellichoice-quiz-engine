@@ -3,11 +3,11 @@ import quizQuestions from "./api/quizQuestions";
 import Quiz from "./components/Quiz";
 import Result from "./components/Result";
 import logo from "./img/logo.png";
-import "./App.css";
+import "./quizpage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 
-class App extends Component {
+class QuizPage extends Component {
   constructor(props) {
     super(props);
 
@@ -216,7 +216,7 @@ class App extends Component {
   quit() {
     if (window.confirm("You are moving aways from the Quiz!")) {
       //save progress and move to the dashboard
-      window.location.reload(false);
+      window.location.href = '/dashboard';
     }
   }
 
@@ -272,4 +272,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default QuizPage;

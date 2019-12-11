@@ -5,27 +5,26 @@ import 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import dashboard from './dashboard'
 import profile from './profile'
+import quizpage from './quizpage'
 
 function App() {
   return (
 	<BrowserRouter>
 		<Route render={({location}) => {
 			const path = location.pathname;
-			if (path === '/dashboard' || path === '/profile') return;
+			if (path === '/dashboard' || path === '/profile' || path === '/quizpage') return;
 			return (
 				<div>
 					<h1>Path not found</h1>
 					<Link to="/dashboard">Click here to go to the dashboard</Link>
-					<div style={{borderStyle:"solid", height:"2em", width:"150px", textAlign:"center"}} onClick={() => { alert("hi"); }}>hello</div>
 				</div>
 			)
 		}}/>
 		<Route exact={true} path="/dashboard" component={dashboard}/>
 		<Route exact={true} path="/profile" component={profile}/>
+		<Route exact={true} path="/quizpage" component={quizpage}/>
 	</BrowserRouter>
   );
 }
-
-
 
 export default App;

@@ -56,7 +56,7 @@ const dashboard = (props) => (
 
 const QuizBox = (props) => {
 	return (
-		<div className='quiz-box' onClick={ () => { alert('You are now taking the quiz'); } }>
+		<div className='take-quiz-box' onClick={ () => { window.location.href = '/quizpage'; } }>
 			<Book/>
 			<h3>{props.title}</h3>
 			<hr className='col-xs-12' style={{width:'60%', borderWidth:'5px', borderColor:'black'}}/>

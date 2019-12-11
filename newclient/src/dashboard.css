@@ -93,7 +93,7 @@
 	object-fit: contain;
 }
 
-.quiz-box {
+.take-quiz-box {
 	float: left;
 	width: 48%;
 	border-style: solid;
@@ -107,16 +107,16 @@
 	cursor: pointer;
 }
 
-.quiz-box-img {
+.take-quiz-box-img {
 	height: 80%;
 	float: left;
 	margin: 1%;
 }
 
-.quiz-box h3 {
+.take-quiz-box h3 {
 	padding-top: 0.3em;
 }
 
-.quiz-box:hover {
+.take-quiz-box:hover {
 	background-color: lightgray;
 }

@@ -20,7 +20,7 @@ const profile = () => {
             <div className='profile-page-bottom'>
                 <div className="info">
                     <div className="info-title">
-                        <p className="infomation">info</p>
+                        <p className="infomation">Info</p>
                     </div>
                     <div className="info-info">
                         <p>Email: hhh@utdallas.edu<br />
@@ -40,7 +40,7 @@ const profile = () => {
                 </div>
 
             </div>
-            <p>Click <Link to="/dashboard">here</Link> to go back to the dashboard</p>
+            <p style={{marginTop:'25em'}}>Click <Link to="/dashboard">here</Link> to go back to the dashboard</p>
         </div>
 	)
 };
