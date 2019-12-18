@@ -1,4 +1,4 @@
 api/dist
 api/node_modules
 newclient/node_modules/
-react-quiz/node_modules/
+.vscode/
