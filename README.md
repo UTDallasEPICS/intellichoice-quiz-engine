@@ -6,4 +6,6 @@
 
 # To run the api it will be necessary to have docker installed which requires at least windows pro if you are utilizing windows. It is possible to grab one if you are a student visit microsoft axure for your copy it may be an education OS but that also works.
 
-# Then navigate to the root of the Repository folder(/intellichoice-quiz-engine) and run "docker-compose up"
+# Then navigate to the root of the Repository folder("/intellichoice-quiz-engine") and run "docker-compose up"
+
+# To run the front end alone navigate to the newDashboard folder, run "npm install" if the repo was just freshly cloned and then "npm start" to start up the development server.
