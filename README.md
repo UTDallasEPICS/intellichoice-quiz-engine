@@ -10,4 +10,4 @@
 
 # Then navigate to the root of the Repository folder("/intellichoice-quiz-engine") and run "docker-compose up"
 
-# To run the front end alone navigate to the newDashboard folder, run "npm install" if the repo was just freshly cloned and then "npm start" to start up the development server.
+# To run the front end alone navigate to the newClient folder, run "npm install" if the repo was just freshly cloned and then "npm start" to start up the development server.
