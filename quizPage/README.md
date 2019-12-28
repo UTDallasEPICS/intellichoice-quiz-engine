@@ -1,4 +1,4 @@
-# App.js contains the bulk of the logic as of time of writing.
+# quizpage.js contains the bulk of the logic as of time of writing. The formatting is all on the quizpage.css for the quiz taking part
 
 # Current logic for the quiz is that once the questions reaches the last one and it is answered it progresses towards the results page. Ideally in the future make a submit button so that navigation back and forth is possible before submission. 
 
