@@ -25,9 +25,9 @@ client:
   working_dir: /iv_client
   command: npm start
   ports:
-  - 5000:5001
+    - 5000:5001
   environment:
-  - NODE_ENV=development
+    - NODE_ENV=development
 nginx:
   container_name: iv_nginx
   image: nginx
@@ -39,7 +39,7 @@ nginx:
   links:
     - api
     - client
-  
+
 database:
   container_name: iv_db
   image: mongo:4.0
