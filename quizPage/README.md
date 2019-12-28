@@ -10,4 +10,4 @@
 
 # AnswerOption contians the specifics that each anwer option have 
 
-# currenlty quizQuestions.js is just a json format file to load the questions, with the goal to connect it to the api provided by the team of Fall 2018
+# currenlty quizQuestions.js is just a json format file to load the questions, with the goal to connect it to the api provided by the team of Spring 19
