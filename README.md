@@ -9,7 +9,7 @@ If you are new to using GitHub and have not used Git, download Git from https://
 Git is a powerful tool and you will most likely use it often in the near fortune. Because of this, I would highly recommend watching this tutorial https://www.youtube.com/watch?v=SWYqp7iY_Tc.
 
 ## Running the Project
-Run `npm install` in the base directory and go to the /client directory and run `npm install` there again.
+Run `npm install` in the base directory (intellichoice-quiz-engine folder) and go to the /client directory and run `npm install` there again.
 Then go back to the base directory (`cd ..`) and start it with `npm run dev`. The project should now be running on localhost:3000
 
 ## Tips
