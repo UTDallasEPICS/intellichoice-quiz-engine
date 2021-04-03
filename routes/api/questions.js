@@ -4,7 +4,7 @@ const router = express.Router();
 //question model
 const Question = require('../../models/Question');
 
-
+//need to add random numgenerator
 
 //@route GET api/questions
 //@desc Get all questions
