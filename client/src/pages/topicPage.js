@@ -80,20 +80,7 @@ export default class topicPage extends Component {
                 key={index}
                 onClick={this.onClick.bind(this, { value })}
               >
-                <Subject text="Addition" symbol="+" color="#C83131"></Subject>
-                <Subject
-                  text="Subtraction"
-                  symbol="—"
-                  color="#EABC00"
-                ></Subject>
-                <Subject
-                  text="Multiplication"
-                  symbol="×"
-                  color="#F39317"
-                ></Subject>
-                <Subject text="Division" symbol="÷" color="#00B971"></Subject>
-                <Subject text="Fraction" symbol="/" color="#00A1DE"></Subject>
-                <Subject text="Decimal" symbol="●" color="#8D33AA"></Subject>
+                <Subject key={index} text={value} color="#F39317"></Subject>
               </div>
             </div>
           );
