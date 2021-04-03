@@ -73,6 +73,7 @@ export default class topicPage extends Component {
             this.onClick.bind passes topic in value to onClick function and sends info to next page
             
             */
+          // testing 123
           return (
             <div style={{ margin: "0 20%" }}>
               <div
