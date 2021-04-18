@@ -19,7 +19,7 @@ const Navbar = () => {
         <Bars />
         <NavMenu>
           {/* Practice and Profile navigation */}
-          <NavLink to='/practice' activeStyle>
+          <NavLink to='/topics' activeStyle>
             Practice
           </NavLink>
           <NavLink to='/profile' activeStyle>
