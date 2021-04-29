@@ -11,7 +11,7 @@ export default class subTopicPage extends Component{
         this.state = { 
                        //subtopics: this.props.location.state.subtopics, 
                        topic: this.props.location.state.topic,
-                       grade: this.props.location.state.grade,
+                       //grade: this.props.location.state.grade,
                        questions: this.props.location.state.questions,
                        subtopics: [],
                      
@@ -24,8 +24,20 @@ export default class subTopicPage extends Component{
         axios.get('http://localhost:3000/api/questions')
             .then(res => {
                 ques = res.data;
-                ques = ques.filter(question =>question.gradeLevel === this.state.grade && question.topic === this.state.topic);
+                ques = ques.filter(question => question.topic === this.state.topic);
                 ques = ques.map(a => a.subtopic);
+                var subtopicNames = ques;
+                //combining the same subtopics together
+                for (var i = subtopicNames.length - 1; i >= 1; i--)
+                {
+                    for (var j = i - 1; j >= 0; j--)
+                    {
+                        if (subtopicNames[i] === subtopicNames[j])
+                        {
+                            subtopicNames[i] = null;
+                        }
+                    }
+                }
                 this.setState({ subtopics: ques });
                
             })
@@ -41,6 +53,9 @@ export default class subTopicPage extends Component{
         console.log(this.state.questions);
         var ques = this.state.questions.filter(question =>question.subtopic === value);
         ques = ques.filter(question => question.topic === this.state.topic);
+
+        if (this.state.topic === 'Addition' || this.state.topic === 'Subtraction' || this.state.topic === 'Multiplication' || this.state.topic === 'Division')
+        {
         ques = ques[0];
    
         var min;
@@ -102,6 +117,17 @@ export default class subTopicPage extends Component{
                       max: max,
                       color:color, 
                       topic: this.state.topic}} );
+        }//end of if it is add,sub, mutl, or div
+        else
+        {
+            this.props.history.push({
+                pathname: '/question2',
+                state: {
+                    topic: this.state.topic,
+                    questions: ques
+                }
+            })
+        }
       };
 
     
@@ -113,12 +139,14 @@ export default class subTopicPage extends Component{
             <Banner text="Practice" color='#4CAF50'></Banner>
 
                 {this.state.subtopics.map((value,index)=> {
+                     if (value !== null)
+                     {
                  return <div style={{margin:'0 20%'}}>
                         <div class='subjectBox' key={index} onClick = {this.onClick.bind(this, {value})}>
                             <Subject key={index} text={value} color='#F39317'></Subject>
                         </div>
                     </div>                  
-                })}
+                      } })}
             </>
     )
     

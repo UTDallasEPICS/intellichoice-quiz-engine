@@ -12,6 +12,7 @@ import topicPage from './pages/topicPage';
 import testing from './pages/testing';
 import getList from './pages/getList';
 import questionDisplayForm from './pages/questionDisplayForm';
+import Question2DisplayForm from './pages/Question2DisplayForm';
 //other components and functions imported from folders/files
 
 //Route paths are to be added to end of url to view/test component. Ex. localhost:3000/topics will take you to the topics page
@@ -45,6 +46,7 @@ function App() {
         <Route path='/subtraction' component = {questionDisplayForm}/>
         <Route path='/multiplication' component = {questionDisplayForm}/>
         <Route path='/division' component = {questionDisplayForm}/>
+        <Route path='/question2' component = {Question2DisplayForm}/>
       </Switch>
     </Router>
   );

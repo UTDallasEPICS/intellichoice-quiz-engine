@@ -19,7 +19,7 @@ const SubmissionBox = ({ num1, num2, funct, answer }) => {
       result.style.color = "#4CAF50";
       setTimeout(function () {
         window.location.reload();
-      }, 2000);
+      }, 1000);
     } else {
       result = document.getElementById("result");
       result.innerHTML = "Not quite, try again!";

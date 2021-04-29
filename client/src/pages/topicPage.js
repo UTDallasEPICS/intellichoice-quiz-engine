@@ -10,7 +10,7 @@ import "../components/topicPageStyle.css";
 export default class topicPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { grade: "2", topics: [], questions: [], subtopics: [] };
+    this.state = { grade: "null", topics: [], questions: [], subtopics: [] };
   }
 
   //get indices of each unique value. Used to display topics list to user.
@@ -40,22 +40,42 @@ export default class topicPage extends Component {
 
   onClick = ({ value }) => {
     //adjust questions to be passed according to value selected
-    this.setState({
-      subtopics: this.state.questions
-        .filter((question) => question.topic === value)
-        .map((a) => a.subtopic),
+    this.setState({subtopics: this.state.questions.filter((question) => question.topic === value).map((a) => a.subtopic)}, () => {
+      if (this.state.subtopics[0] !== undefined)
+      {
+          console.log(this.state.subtopics);
+      //route to next page
+      this.props.history.push({                           //pushes topic, grade, and questions to /subtopics page
+          pathname: '/subtopics',
+          state: {  
+                  topic: value,
+                  grade: this.state.grade,
+                  questions: this.state.questions 
+               }}
+          );
+  
+       
+  
+      }//end of if there are subtopics
+      else
+      {
+          console.log("No subtopics");
+          console.log(this.state.subtopics);
+
+           //made an array with only the questions with the right topic
+           var topicQuestions = this.state.questions.filter(question => question.topic === value);
+
+           //route to next page
+      this.props.history.push({                       //pushes topic, grade, and questions to /subtopics page
+          pathname: '/question2',
+          state: {  
+                  topic: value,
+                  questions: topicQuestions
+               }}
+          );
+      }
     });
 
-    //route to next page
-    this.props.history.push({
-      //pushes topic, grade, and questions to /subtopics page
-      pathname: "/subtopics",
-      state: {
-        topic: value,
-        grade: this.state.grade,
-        questions: this.state.questions,
-      },
-    });
   };
 
   render() {
@@ -74,17 +94,12 @@ export default class topicPage extends Component {
             
             */
           // testing 123
-          return (
-            <div style={{ margin: "0 20%" }}>
-              <div
-                class="subjectBox"
-                key={index}
-                onClick={this.onClick.bind(this, { value })}
-              >
+          return <div style={{ margin: "0 20%" }}>
+              <div class="subjectBox" key={index} onClick={this.onClick.bind(this, { value })}>
                 <Subject key={index} text={value} color="#F39317"></Subject>
               </div>
             </div>
-          );
+          
         })}
       </>
     );
