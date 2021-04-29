@@ -3,13 +3,17 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const questions = require('./routes/api/questions')
+const mcquestions = require('./routes/api/mcquestions')
 const app = express();
 
 //middle ware bp
 app.use(bodyParser.json());
 
 //DB Config
-const db = require('./config/keys').mongoURI;
+let dotenv = require('dotenv');
+dotenv.config();
+const db = process.env.mongoURI;
+//const db = require('./config/keys').mongoURI;
 
 //connect to mongodb
 mongoose
@@ -23,6 +27,7 @@ mongoose
 
 //use routes (POST, GET) in questions.js api
 app.use('/api/questions', questions);
+app.use('/api/mcquestions', mcquestions);
 const port = process.env.PORT || 5000; //define port
 
 

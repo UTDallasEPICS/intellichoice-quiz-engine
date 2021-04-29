@@ -7,6 +7,7 @@ import Practice from './pages/practice';
 import Profile from './pages/profile';
 import Logout from './pages/logout';
 import addQuestion from './components/addQuestion';
+import addMCQuestion from './components/addMCQuestion';
 import subtopicPage from './pages/subtopicPage';
 import topicPage from './pages/topicPage';
 import testing from './pages/testing';
@@ -36,7 +37,7 @@ function App() {
         <Route path='/logout' component={Logout} />
        
         <Route path='/add'  component={addQuestion}/>
-        
+        <Route path='/addMC'  component={addMCQuestion}/>
      
         <Route path='/topics' component= {topicPage}/>
         <Route path='/testing' element= {testing(topics)}/>
