@@ -9,10 +9,9 @@ import '../components/topicPageStyle.css';
 
 export default class topicPage extends Component{
 
-
     constructor(props) {
         super(props);
-        this.state = { grade: '2' , topics: [], questions: [], subtopics: []};
+        this.state = { grade: "null" , topics: [], questions: [], subtopics: []};
     }
 
     //get indices of each unique value. Used to display topics list to user.

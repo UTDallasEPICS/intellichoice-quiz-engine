@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 .app {
   background-color: white;
   width: 450px;
@@ -23,19 +24,6 @@ code {
   justify-content: center;
 }
 
-/*
-.app {
-  background-color: white;
-  width: 450px;
-  min-height: 200px;
-  height: min-content;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
-  display: flex;
-  justify-content: center;
-}
-*/
 .question-section {
   width: 100%;
   position: relative;
@@ -54,4 +42,14 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.result {
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  color: #4caf50;
+  margin-top: 50px;
 }

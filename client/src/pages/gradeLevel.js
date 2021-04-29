@@ -1,98 +1,98 @@
-import React, {useState} from 'react'
+import React  from 'react'
+import {Component} from 'react'
+
+import axios from 'axios'
 import Banner from '../components/Banner'
-import { Button, Divider } from '@material-ui/core';
+import '../components/Banner/style.css'
+import Subject from '../components/Subjects'
+import '../components/topicPageStyle.css';
 
-export default function QuizGenerator(){
-    const questions = [
-        {
-            QuestionText: "6+4 = ?",
-            answerOptions: [
-                {answerText: '10', isCorrect: true},
-                {answerText: '12', isCorrect: false},
-                {answerText: '15', isCorrect: false},
-                {answerText: '20', isCorrect: false},
-            ],
-            explain: '6 + 4 = 10',
-        },
-        {
-            QuestionText: "2+4 = ?",
-            answerOptions: [
-                {answerText: '14', isCorrect: false},
-                {answerText: '7', isCorrect: false},
-                {answerText: '6', isCorrect: true},
-                {answerText: '12', isCorrect: false},
-            ],
-            explain: '2 + 4 = 6',
-        },
-        {
-            QuestionText: "9+12 = ?",
-            answerOptions: [
-                {answerText: '5', isCorrect: false},
-                {answerText: '21', isCorrect: true},
-                {answerText: '18', isCorrect: false},
-                {answerText: '20', isCorrect: false},
-            ],
-            explain: '9 + 12 = 21',
-        },
-    ];
+export default class gradeLevel extends Component{
 
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-
-    const [score, setScore] = useState(0);
-
-    const [showScore, setShowScore] = useState(false);
-
-    const [showExplain, setExplain] = useState('');
-
-    const handleAnswerButtonClick = (isCorrect) => {
-        if(isCorrect === true){
-            setScore(score + 1);
-            setExplain('Great Work!!');
-        } else {
-          setExplain(questions[currentQuestion].explain);
-        }      
+    constructor(props) {
+        super(props);
+        this.state = { grade: "null" , topics: [], questions: [], subtopics: []};
     }
 
-    const handleNextQuestion = () => {
-        const nextQuestion = currentQuestion + 1;
-        if(nextQuestion < questions.length){
-            setCurrentQuestion(nextQuestion);
-        } else {
-            setShowScore(true);
-        }
+    //get indices of each unique value. Used to display topics list to user.
+    onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+      }
+     
+    //retrieves question array from database.
+    componentDidMount() {
+        axios.get('./api/questions')
+            .then(res => {
+                //reduces array to questions with selected grade level
+                this.setState({ questions: res.data.filter(question => question.gradeLevel === this.state.grade)}); 
+                //reduces array to questions with selected topic
+                this.setState({ topics: this.state.questions.map(a => a.topic) });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+            this.setState({ topics: this.state.topics.filter(this.onlyUnique)});
+          
     }
 
-    return (
-        <div >
-            <Banner text="Multiple-Choice" color='#4CAF50'></Banner>    
-            { showScore ? (
-                <div>You scored {score} out of {questions.length}</div>
-            ) : (
-                <div className='app'>
-                    <div className='question-section'>
-                        <div className='question-count'>
-                            <span>Question {currentQuestion + 1}</span>/{questions.length}
-                        </div>
-                        <div className='question-text'>
-                            {questions[currentQuestion].QuestionText}
-                            <Divider style ={{margin: '20px 0'}} />
-                        </div>
-                             
-                        <div>
-                            <h2>{showExplain}</h2>
-                        </div>
-                        <div>
-                            <button fullWidth variant="contained" color="inherit" style={{color: "white", background: "#4CAF50", height:"40px", marginTop: '10px'}} onClick={handleNextQuestion}>Next Question</button>
-                        </div>
-                    </div>  
-                    <div className='answer-section'>                   
-                        {questions[currentQuestion].answerOptions.map((anserOption) => (
-                            <Button fullWidth variant="contained" color="inherit" style={{color: "white", background: "#4CAF50", height:"40px", marginTop: '10px'}} onClick={() => handleAnswerButtonClick(anserOption.isCorrect)}>
-                                {anserOption.answerText} 
-                            </Button>))}           
+    
+   
+
+    onClick = ({value}) =>{
+    //adjust questions to be passed according to value selected
+    this.setState({ subtopics: this.state.questions.filter(question => question.topic === value).map(a => a.subtopic) });
+    
+    //route to next page
+    this.props.history.push({                           //pushes topic, grade, and questions to /subtopics page
+        pathname: '/subtopics',
+        state: {  
+                topic: value,
+                grade: this.state.grade,
+                questions: this.state.questions,
+                score: this.state.score
+             }}
+        );
+
+      };
+
+    handleNextQuestion = ({value}) => {
+        //adjust questions to be passed according to value selected
+    this.setState({ subtopics: this.state.questions.filter(question => question.topic === value).map(a => a.subtopic) });
+    
+    //route to next page
+    this.props.history.push({                           //pushes topic, grade, and questions to /subtopics page
+        pathname: '/subtopics',
+        state: {  
+                topic: value,
+                grade: this.state.grade,
+                questions: this.state.questions,
+                score: this.state.score
+             }}
+        );
+    }
+    render(){
+        return (
+        <>
+        <Banner text="Practice" color='#4CAF50'></Banner>
+            {this.state.topics.filter(this.onlyUnique).map((value,index)=> { //filters database questions to display only unique topics. 
+            
+            //var rand = 'rgb(' + (Math.floor((256) * Math.random()) ) + ',' + (Math.floor((256) * Math.random()) ) + ',' + (Math.floor((256 ) * Math.random()) ) + ')';
+
+            /* 
+
+            Each topic is displayed with same styling in separate box. 
+            this.onClick.bind passes topic in value to onClick function and sends info to next page
+            
+            */
+             return <div style={{margin:'0 20%'}}>
+                    <div class='subjectBox' key={index} onClick = {this.onClick.bind(this, {value})}>
+                        <Subject key={index} text={value} color='#F39317'></Subject>
                     </div>
-                </div>
-            )}
-        </div>
+                </div>                  
+            })}
+        </>
+        
     )
+    }
 }
+
