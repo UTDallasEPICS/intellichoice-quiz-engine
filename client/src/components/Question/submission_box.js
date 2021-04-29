@@ -4,26 +4,6 @@ import Form from './form';
 import './style.css'
 
 
-<<<<<<< HEAD
-    var result;
-    answer = answer.toString();
-    const correct = answer === guess;
-    if (correct) {
-      result = document.getElementById("result");
-      result.innerHTML = "Excellent Work!";
-      result.style.fontSize = "50px";
-      result.style.fontWeight = "bold";
-      result.style.color = "#4CAF50";
-      setTimeout(function () {
-        window.location.reload();
-      }, 1000);
-    } else {
-      result = document.getElementById("result");
-      result.innerHTML = "Not quite, try again!";
-      result.style.fontSize = "50px";
-      result.style.fontWeight = "bold";
-      result.style.color = "#C83131";
-=======
 const SubmissionBox = ({num1, num2, funct, answer, score}) => {
     
     const updateAppState = (guess) => {
@@ -52,7 +32,6 @@ const SubmissionBox = ({num1, num2, funct, answer, score}) => {
             result.style.color = "#C83131";
         }
         
->>>>>>> b8e3d6c0f542e4ccf746393d238febcd4ba915eb
     }
 
     return(
