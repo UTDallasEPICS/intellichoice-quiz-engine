@@ -9,7 +9,6 @@ import '../components/topicPageStyle.css';
 
 export default class topicPage extends Component{
 
-
     constructor(props) {
         super(props);
         this.state = { grade: "null" , topics: [], questions: [], subtopics: []};

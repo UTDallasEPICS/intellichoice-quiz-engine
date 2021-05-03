@@ -45,7 +45,7 @@ export default class subTopicPage extends Component{
                 console.log(error);
             })
             return ques;
-    };
+    }
 
     onClick = ({value}) =>{
 

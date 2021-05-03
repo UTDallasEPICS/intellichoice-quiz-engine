@@ -1,15 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Grid, Typography, Paper, Divider } from '@material-ui/core';
 import Form from './form';
 import './style.css'
 
 const SubmissionBox = ({num1, num2, funct, answer, score}) => {
     
+    const [results, setResults] = useState('');
+
     const updateAppState = (guess) => {
-        console.log(answer);
-        console.log(guess);
-        
-        var result;
         answer = answer.toString();
         const correct = (answer === guess);
         if (correct) {
@@ -26,11 +24,7 @@ const SubmissionBox = ({num1, num2, funct, answer, score}) => {
             
         }
         else {
-            result = document.getElementById("result");
-            result.innerHTML = "Not quite, try again!";
-            result.style.fontSize = "50px";
-            result.style.fontWeight = "bold";
-            result.style.color = "#C83131";
+            setResults("Not quite, try again!");
         }
         
     }
@@ -42,14 +36,13 @@ const SubmissionBox = ({num1, num2, funct, answer, score}) => {
                     <Paper style = {{padding: '50px 50px 5px 50px'}} elevation={6}>
                         <Typography align="center" variant="h2" gutterBottom>What is {num1} {funct} {num2}?</Typography>
                         <Divider style ={{margin: '20px 0'}} />
-                        <Form returnGuessToApp={guess => updateAppState(guess)}/>
-                        
+                        <Form returnGuessToApp={guess => updateAppState(guess)}/>        
                     </Paper>
+                    <div className='result'>
+                        {results}
+                    </div>
                 </Grid>
             </Grid>
-            
-            <div id="result" style = {{margin: 'auto', align: 'center', textAlign: "center"}}>
-            </div>
         </>
     )
 }

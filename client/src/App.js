@@ -14,6 +14,9 @@ import testing from './pages/testing';
 import getList from './pages/getList';
 import questionDisplayForm from './pages/questionDisplayForm';
 import Question2DisplayForm from './pages/Question2DisplayForm';
+import multipleChoice from './pages/multipleChoice';
+import login from './pages/login';
+import gradeLevel from './pages/gradeLevel';
 //other components and functions imported from folders/files
 
 //Route paths are to be added to end of url to view/test component. Ex. localhost:3000/topics will take you to the topics page
@@ -48,6 +51,9 @@ function App() {
         <Route path='/multiplication' component = {questionDisplayForm}/>
         <Route path='/division' component = {questionDisplayForm}/>
         <Route path='/question2' component = {Question2DisplayForm}/>
+        <Route path='/multipleChoice' component = {multipleChoice}/>
+        <Route path='/login' component = {login}/>
+        <Route path='/gradeLevel' component = {gradeLevel}/>
       </Switch>
     </Router>
   );
