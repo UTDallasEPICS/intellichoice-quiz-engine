@@ -21,6 +21,8 @@ console.log("here too");
 const SubmissionBox = ({q}) => {
    
     const [index, setIndex] = useState(0);
+    const [score, setScore] = useState(0);
+    const [showScore, setShowScore] = useState(false);
     var i = 0;
     const updateAppState = (guess, answerIndex) => {
         //console.log(answer);
@@ -39,6 +41,7 @@ const SubmissionBox = ({q}) => {
             result.style.fontSize = "50px";
             result.style.fontWeight = "bold";
             result.style.color = "#4CAF50";
+            setScore(score + 1);
             setTimeout(function () {
                 //getQuestion(questionsArray);
                 i++;
@@ -47,9 +50,12 @@ const SubmissionBox = ({q}) => {
                 //q2Display.style.display = "initial";
                 //window.location.reload();
                 result.style.display = "none";
-                if ((index + 1) < q.length)
+                if ((index + 1) < 3)
                 {
                     setIndex(index + 1);
+                }
+                else {
+                    setShowScore(true);
                 }
             }, 1000);
             
@@ -113,7 +119,11 @@ const SubmissionBox = ({q}) => {
    
     return(
         <>
-        
+           { showScore ? (
+                <div className='result'>
+                    You scored {score} out of 3
+                </div>
+            ) : (
             <Grid container style = {{height: '50vh'}} justify="center" alignItems="center">
                 <Grid item xs={4}>
                     <Paper style = {{padding: '50px 50px 5px 50px'}} elevation={6}>
@@ -129,6 +139,7 @@ const SubmissionBox = ({q}) => {
                     </Paper>
                 </Grid>
             </Grid>
+            )}
 
             <div id="result" style = {{margin: 'auto', align: 'center', textAlign: "center"}}>
             </div>

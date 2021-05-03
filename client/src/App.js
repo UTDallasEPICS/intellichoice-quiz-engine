@@ -15,6 +15,8 @@ import getList from './pages/getList';
 import questionDisplayForm from './pages/questionDisplayForm';
 import Question2DisplayForm from './pages/Question2DisplayForm';
 import multipleChoice from './pages/multipleChoice';
+import mcTopicPage from './pages/mcTopicPage';
+import mcSubtopicPage from './pages/mcSubtopicPage';
 import login from './pages/login';
 import gradeLevel from './pages/gradeLevel';
 //other components and functions imported from folders/files
@@ -51,7 +53,8 @@ function App() {
         <Route path='/multiplication' component = {questionDisplayForm}/>
         <Route path='/division' component = {questionDisplayForm}/>
         <Route path='/question2' component = {Question2DisplayForm}/>
-        <Route path='/multipleChoice' component = {multipleChoice}/>
+        <Route path='/multipleChoice' component = {mcTopicPage}/>
+        <Route path='/mcsubtopics' component = {mcSubtopicPage}/>
         <Route path='/login' component = {login}/>
         <Route path='/gradeLevel' component = {gradeLevel}/>
       </Switch>
