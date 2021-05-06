@@ -10,7 +10,6 @@ export default class Question2DisplayForm extends Component{
         super(props);
         this.state = { 
                        topic: this.props.location.state.topic,
-                      // color: this.props.location.state.color,
                        questions: this.props.location.state.questions,
                        color: '#00B971'};        
     }

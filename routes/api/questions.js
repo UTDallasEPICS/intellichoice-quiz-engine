@@ -4,8 +4,6 @@ const router = express.Router();
 //question model
 const Question = require('../../models/Question');
 
-//need to add random numgenerator
-
 //Need to add math_function.js and submission_box.js here?
 
 //@route GET api/questions

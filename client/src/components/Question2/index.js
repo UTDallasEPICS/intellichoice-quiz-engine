@@ -1,7 +1,5 @@
 import React from 'react'
-//import './style.css'
 import SubmissionBox from './SubmissionBox'
-//import answer_function from './functions/math_function'
 
 const Question2 = ({ques}) => {
     
