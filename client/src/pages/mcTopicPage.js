@@ -43,7 +43,7 @@ export default class mcTopicPage extends Component{
           console.log(this.state.subtopics);
       //route to next page
       this.props.history.push({                           //pushes topic, grade, and questions to /subtopics page
-          pathname: '/subtopics',
+          pathname: '/mcsubtopics',
           state: {  
                   topic: value,
                   grade: this.state.grade,

@@ -58,7 +58,7 @@ function App() {
         <Route path='/mcaddition' component = {multipleChoice}/>
         <Route path='/mcsubtraction' component = {multipleChoice}/>
         <Route path='/mcmultiplication' component = {multipleChoice}/>
-        <Route path='/mcdivision' component = {multipleChoicem}/>
+        <Route path='/mcdivision' component = {multipleChoice}/>
         <Route path='/login' component = {login}/>
         <Route path='/gradeLevel' component = {gradeLevel}/>
       </Switch>

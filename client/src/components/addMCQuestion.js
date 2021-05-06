@@ -215,11 +215,7 @@ export default class addMCQuestion extends Component {
                                className="btn btn-primary"/>
 
                     </div>
-                    <div className="form-group">
-                        <input type="submit"
-                               value="Create Question"
-                               className="btn btn-primary"/>
-                    </div>
+                    
                 </form>
             </div>
         )
