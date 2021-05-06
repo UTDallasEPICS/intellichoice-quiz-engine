@@ -4,30 +4,11 @@ import SubmissionBox from './SubmissionBox'
 //import answer_function from './functions/math_function'
 
 const Question2 = ({ques}) => {
-    console.log(ques);
-
-    /*
-    for (var i = 0; i < ques.length; i++)
-    {
-        var singleQuestion = ques[i];
-        console.log(singleQuestion);
-    }
-    */
-   
-    /*
-    return(
-        <>
-        {ques.map(function(ques, i){
-            console.log("got here");
-            <SubmissionBox id = "test" q = {ques[i]} />
-            
-        })}
-        </>
-    )
-  */
+    
+    ques.sort(() => Math.random() - 0.5);
  return (
      <>
-     <SubmissionBox id = "test" q = {ques} />
+     <SubmissionBox q = {ques} />
      </>
  )
    

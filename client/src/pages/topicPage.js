@@ -77,24 +77,6 @@ export default class topicPage extends Component{
 
   };
 
-      
-/*
-    handleNextQuestion = ({value}) => {
-        //adjust questions to be passed according to value selected
-    this.setState({ subtopics: this.state.questions.filter(question => question.topic === value).map(a => a.subtopic) });
-    
-    //route to next page
-    this.props.history.push({                           //pushes topic, grade, and questions to /subtopics page
-        pathname: '/subtopics',
-        state: {  
-                topic: value,
-                grade: this.state.grade,
-                questions: this.state.questions,
-                score: this.state.score
-             }}
-        );
-    }
-    */
     render(){
         return (
         <>

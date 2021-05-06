@@ -26,18 +26,7 @@ export default class subTopicPage extends Component{
                 ques = res.data;
                 ques = ques.filter(question => question.topic === this.state.topic);
                 ques = ques.map(a => a.subtopic);
-                var subtopicNames = ques;
-                //combining the same subtopics together
-                for (var i = subtopicNames.length - 1; i >= 1; i--)
-                {
-                    for (var j = i - 1; j >= 0; j--)
-                    {
-                        if (subtopicNames[i] === subtopicNames[j])
-                        {
-                            subtopicNames[i] = null;
-                        }
-                    }
-                }
+              
                 this.setState({ subtopics: ques });
                
             })
@@ -46,6 +35,11 @@ export default class subTopicPage extends Component{
             })
             return ques;
     };
+
+     //get indices of each unique value. Used to display topics list to user.
+    onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+       }
 
     onClick = ({value}) =>{
 
@@ -137,16 +131,14 @@ export default class subTopicPage extends Component{
         return (
             <>
             <Banner text="Practice" color='#4CAF50'></Banner>
-
-                {this.state.subtopics.map((value,index)=> {
-                     if (value !== null)
-                     {
+            {this.state.subtopics.filter(this.onlyUnique).map((value,index)=> { //filters database questions to display only unique topics. 
+                     
                  return <div style={{margin:'0 20%'}}>
                         <div class='subjectBox' key={index} onClick = {this.onClick.bind(this, {value})}>
                             <Subject key={index} text={value} color='#F39317'></Subject>
                         </div>
                     </div>                  
-                      } })}
+                       })}
             </>
     )
     
