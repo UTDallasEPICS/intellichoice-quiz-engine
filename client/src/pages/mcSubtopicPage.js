@@ -87,23 +87,23 @@ export default class mcSubTopicPage extends Component{
        var symbol;
 
         if(ques.topic === "Subtraction"){
-            path = "/subtraction";
+            path = "/mcsubtraction";
             symbol = '-';
             color='#EABC00';
         }
         if(ques.topic === "Addition"){
-            path = "/addition";
+            path = "/mcaddition";
             symbol = '+';
             color='#C83131';
         }
         if(ques.topic === "Multiplication"){
-            path = "/multiplication";
+            path = "/mcmultiplication";
             symbol = '*';
             color='#F39317';
 
         }
         if(ques.topic === "Division"){
-            path = "/division";
+            path = "/mcdivision";
             symbol = '/';
             color='#00B971';
 

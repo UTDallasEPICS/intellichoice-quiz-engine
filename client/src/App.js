@@ -55,6 +55,10 @@ function App() {
         <Route path='/question2' component = {Question2DisplayForm}/>
         <Route path='/multipleChoice' component = {mcTopicPage}/>
         <Route path='/mcsubtopics' component = {mcSubtopicPage}/>
+        <Route path='/mcaddition' component = {multipleChoice}/>
+        <Route path='/mcsubtraction' component = {multipleChoice}/>
+        <Route path='/mcmultiplication' component = {multipleChoice}/>
+        <Route path='/mcdivision' component = {multipleChoicem}/>
         <Route path='/login' component = {login}/>
         <Route path='/gradeLevel' component = {gradeLevel}/>
       </Switch>
